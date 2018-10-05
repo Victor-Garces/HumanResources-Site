@@ -2,16 +2,16 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired>Descripción</nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback>
-          <input nz-input formControlName="userName" placeholder="async validate try to write JasonWood">
+          <input nz-input formControlName="userName" placeholder="Escribe algo...">
           <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors || validateForm.get('userName').pending ">
             <ng-container *ngIf="validateForm.get('userName').hasError('required')">
-              Please input your username!
+              Por favor, escriba la descripción
             </ng-container>
             <ng-container *ngIf="validateForm.get('userName').hasError('duplicated')">
-              The username is redundant!
+              La descripción es redundante
             </ng-container>
             <ng-container *ngIf="validateForm.get('userName').pending">
-              Validating...
+              Validando...
             </ng-container>
           </nz-form-explain>
         </nz-form-control>

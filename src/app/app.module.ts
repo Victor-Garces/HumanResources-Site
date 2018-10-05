@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, en_US, NZ_MODAL_CONFIG } from 'ng-zorro-antd';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
@@ -14,6 +14,8 @@ import { CreateCompetitionComponent } from './competition/create-competition/cre
 import { CompetitionService } from '../services/competition.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowCompetitionComponent } from './competition/show-competition/show-competition.component';
+import { CompetitionModalComponent } from './competition/competition-modal/competition-modal.component';
+import { CompetitionUpdateDrawerComponent } from './competition/competition-update-drawer/competition-update-drawer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ShowCompetitionComponent } from './competition/show-competition/show-co
     SideBarComponent,
     AppLayoutComponent,
     CreateCompetitionComponent,
-    ShowCompetitionComponent
+    ShowCompetitionComponent,
+    CompetitionModalComponent,
+    CompetitionUpdateDrawerComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,7 @@ import { ShowCompetitionComponent } from './competition/show-competition/show-co
     RouterModule.forRoot(AppRoutes),
     HttpClientModule
   ],
-  providers   : [ { provide: NZ_I18N, useValue: en_US }, CompetitionService],
+  providers   : [ { provide: NZ_I18N, useValue: en_US }, { provide: NZ_MODAL_CONFIG, useValue: {autoBodyPadding: true}}, CompetitionService],
   bootstrap: [AppComponent]
 })
 

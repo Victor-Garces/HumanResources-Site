@@ -24,6 +24,6 @@ export class CompetitionService {
   }
 
   updateCompetition(id:string, competition:{description:string, status:CompetitionStatus}){
-    return this.http.patch(`${environment.apiBaseUrl}/competition/${id}`, competition).toPromise();
+    return this.http.put(`${environment.apiBaseUrl}/competition/${id}`, competition).toPromise();
   }
 }

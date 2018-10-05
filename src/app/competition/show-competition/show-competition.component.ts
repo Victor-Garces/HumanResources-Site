@@ -9,12 +9,13 @@ import { CompetitionService } from '../../../services/competition.service';
 export class ShowCompetitionComponent implements OnInit {
 
   competitions: any = [];
+  visible = false;
 
   constructor(private competitionService: CompetitionService) { }
 
   ngOnInit() { 
     this.showData();
-  }
+  } 
 
   showData(){
     this.competitionService.getCompetitions().then((data) => this.competitions = data).catch((error) => console.log(error));
