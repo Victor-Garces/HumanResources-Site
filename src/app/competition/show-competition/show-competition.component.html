@@ -1,0 +1,21 @@
+<nz-table #basicTable [nzData]="competitions">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.id}}</td>
+      <td>{{data.description}}</td>
+      <td>{{data.status}}
+        <nz-divider nzType="vertical"></nz-divider>
+        <a style="color: blue; margin-left:20px;">Actualizar</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a style="color: blue; margin-left:20px;" (click)="onDelete(data.id)">Borrar</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -53,6 +53,7 @@ export class CreateCompetitionComponent implements OnInit {
     };
 
     this.competitionService.createCompetition(competition).then((data) => console.log(data)).catch((error) => console.log(error));
+    this.validateForm.reset();
   };
 
   resetForm(e: MouseEvent): void {
@@ -66,7 +67,7 @@ export class CreateCompetitionComponent implements OnInit {
 
   userNameAsyncValidator = (control: FormControl) => Observable.create((observer: Observer<ValidationErrors>) => {
     setTimeout(() => {
-      if (control.value === 'JasonWood') {
+      if (control.value.length < 3) {
         observer.next({ error: true, duplicated: true });
       } else {
         observer.next(null);

@@ -1,6 +1,6 @@
     <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event,validateForm.value)">
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>Descripcion</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired>Descripción</nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback>
           <input nz-input formControlName="userName" placeholder="async validate try to write JasonWood">
           <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors || validateForm.get('userName').pending ">

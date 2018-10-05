@@ -13,6 +13,7 @@ import { AppRoutes } from 'src/app/app-routing';
 import { CreateCompetitionComponent } from './competition/create-competition/create-competition.component';
 import { CompetitionService } from '../services/competition.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ShowCompetitionComponent } from './competition/show-competition/show-competition.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     SideBarComponent,
     AppLayoutComponent,
     CreateCompetitionComponent,
+    ShowCompetitionComponent
   ],
   imports: [
     BrowserModule,
