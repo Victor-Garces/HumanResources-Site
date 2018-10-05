@@ -6,20 +6,31 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animations/src/providers';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutes } from 'src/app/app-routing';
+import { CreateCompetitionComponent } from './competition/create-competition/create-competition.component';
+import { CompetitionService } from '../services/competition.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SideBarComponent,
+    AppLayoutComponent,
+    CreateCompetitionComponent,
   ],
   imports: [
     BrowserModule,
     NgZorroAntdModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(AppRoutes),
+    HttpClientModule
   ],
-  providers   : [ { provide: NZ_I18N, useValue: en_US }, {provide: BROWSER_ANIMATIONS_PROVIDERS, useValue: en_US} ],
+  providers   : [ { provide: NZ_I18N, useValue: en_US }, CompetitionService],
   bootstrap: [AppComponent]
 })
 

@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:host ::ng-deep .logo {
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    margin: 16px;
+  }
+
+.page-size{
+  height: 100%;
+}
