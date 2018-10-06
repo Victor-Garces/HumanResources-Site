@@ -14,8 +14,11 @@ import { CreateCompetitionComponent } from './competition/create-competition/cre
 import { CompetitionService } from '../services/competition.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowCompetitionComponent } from './competition/show-competition/show-competition.component';
-import { CompetitionModalComponent } from './competition/competition-modal/competition-modal.component';
 import { CompetitionUpdateDrawerComponent } from './competition/competition-update-drawer/competition-update-drawer.component';
+import { CreateLanguageComponent } from './language/create-language/create-language.component';
+import { ShowLanguageComponent } from './language/show-language/show-language.component';
+import { LanguageService } from '../services/language.service';
+import { LanguageUpdateDrawerComponent } from './language/language-update-drawer/language-update-drawer.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,10 @@ import { CompetitionUpdateDrawerComponent } from './competition/competition-upda
     AppLayoutComponent,
     CreateCompetitionComponent,
     ShowCompetitionComponent,
-    CompetitionModalComponent,
-    CompetitionUpdateDrawerComponent
+    CompetitionUpdateDrawerComponent,
+    CreateLanguageComponent,
+    ShowLanguageComponent,
+    LanguageUpdateDrawerComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,11 @@ import { CompetitionUpdateDrawerComponent } from './competition/competition-upda
     RouterModule.forRoot(AppRoutes),
     HttpClientModule
   ],
-  providers   : [ { provide: NZ_I18N, useValue: en_US }, { provide: NZ_MODAL_CONFIG, useValue: {autoBodyPadding: true}}, CompetitionService],
+  providers   : [ { provide: NZ_I18N, useValue: en_US }, 
+    { provide: NZ_MODAL_CONFIG, useValue: {autoBodyPadding: true}}, 
+    CompetitionService,
+    LanguageService
+  ],
   bootstrap: [AppComponent]
 })
 
