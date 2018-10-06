@@ -6,6 +6,8 @@ import { CreateLanguageComponent } from "./language/create-language/create-langu
 import { ShowLanguageComponent } from "./language/show-language/show-language.component";
 import { CreateTrainingComponent } from "./training/create-training/create-training.component";
 import { ShowTrainingComponent } from "./training/show-training/show-training.component";
+import { CreatePositionComponent } from "./position/create-position/create-position.component";
+import { ShowPositionComponent } from "./position/show-position/show-position.component";
 
 export const AppRoutes: Routes = [
     {
@@ -34,6 +36,14 @@ export const AppRoutes: Routes = [
             {
                 path:'training/show',
                 component: ShowTrainingComponent
+            },
+            {
+                path:'position/create',
+                component: CreatePositionComponent
+            },
+            {
+                path:'position/show',
+                component: ShowPositionComponent
             }
         ]
     }

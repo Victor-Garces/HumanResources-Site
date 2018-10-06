@@ -23,6 +23,8 @@ import { CreateTrainingComponent } from './training/create-training/create-train
 import { ShowTrainingComponent } from './training/show-training/show-training.component';
 import { TrainingService } from '../services/training.service';
 import { TrainingUpdateDrawerComponent } from './training/training-update-drawer/training-update-drawer.component';
+import { CreatePositionComponent } from './position/create-position/create-position.component';
+import { ShowPositionComponent } from './position/show-position/show-position.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TrainingUpdateDrawerComponent } from './training/training-update-drawer
     LanguageUpdateDrawerComponent,
     CreateTrainingComponent,
     ShowTrainingComponent,
-    TrainingUpdateDrawerComponent
+    TrainingUpdateDrawerComponent,
+    CreatePositionComponent,
+    ShowPositionComponent
   ],
   imports: [
     BrowserModule,
