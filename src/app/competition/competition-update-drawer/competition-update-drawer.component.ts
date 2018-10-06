@@ -28,8 +28,6 @@ export class CompetitionUpdateDrawerComponent implements OnInit {
   }
 
   updateCompetition(description: string) {
-    console.log(this.competitionId, description, this.state);
-
     const competition: Competition = {
       description: description,
       status: this.state
@@ -37,6 +35,8 @@ export class CompetitionUpdateDrawerComponent implements OnInit {
 
     this.competitionService.updateCompetition(this.competitionId, competition).then((data) => console.log(data))
     .catch((error) => console.log(error));
+
+    this.visible = false;
   }
 
   onSelect(state: string) {

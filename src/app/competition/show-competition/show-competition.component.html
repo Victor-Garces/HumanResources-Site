@@ -1,8 +1,16 @@
 <app-competition-update-drawer #drawer></app-competition-update-drawer>
-<nz-table #basicTable [nzData]="competitions">
+<nz-table #basicTable [nzData]="displayData">
   <thead>
     <tr>
-      <th>Descripcion</th>
+      <th>Descripcion
+        <nz-dropdown nzTrigger="click" [nzClickHide]="false">
+          <i class="anticon anticon-smile-o ant-table-filter-icon" nz-dropdown></i>
+          <div class="custom-filter-dropdown">
+            <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue">
+            <button nz-button [nzType]="'primary'" (click)="search()">Search</button>
+          </div>
+        </nz-dropdown>
+      </th>
       <th>Estado</th>
     </tr>
   </thead>
