@@ -22,6 +22,7 @@ import { LanguageUpdateDrawerComponent } from './language/language-update-drawer
 import { CreateTrainingComponent } from './training/create-training/create-training.component';
 import { ShowTrainingComponent } from './training/show-training/show-training.component';
 import { TrainingService } from '../services/training.service';
+import { TrainingUpdateDrawerComponent } from './training/training-update-drawer/training-update-drawer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TrainingService } from '../services/training.service';
     ShowLanguageComponent,
     LanguageUpdateDrawerComponent,
     CreateTrainingComponent,
-    ShowTrainingComponent
+    ShowTrainingComponent,
+    TrainingUpdateDrawerComponent
   ],
   imports: [
     BrowserModule,
