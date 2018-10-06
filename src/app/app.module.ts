@@ -25,6 +25,7 @@ import { TrainingService } from '../services/training.service';
 import { TrainingUpdateDrawerComponent } from './training/training-update-drawer/training-update-drawer.component';
 import { CreatePositionComponent } from './position/create-position/create-position.component';
 import { ShowPositionComponent } from './position/show-position/show-position.component';
+import { PositionUpdateDrawerComponent } from './position/position-update-drawer/position-update-drawer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ShowPositionComponent } from './position/show-position/show-position.co
     ShowTrainingComponent,
     TrainingUpdateDrawerComponent,
     CreatePositionComponent,
-    ShowPositionComponent
+    ShowPositionComponent,
+    PositionUpdateDrawerComponent
   ],
   imports: [
     BrowserModule,
