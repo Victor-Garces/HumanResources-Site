@@ -19,6 +19,9 @@ import { CreateLanguageComponent } from './language/create-language/create-langu
 import { ShowLanguageComponent } from './language/show-language/show-language.component';
 import { LanguageService } from '../services/language.service';
 import { LanguageUpdateDrawerComponent } from './language/language-update-drawer/language-update-drawer.component';
+import { CreateTrainingComponent } from './training/create-training/create-training.component';
+import { ShowTrainingComponent } from './training/show-training/show-training.component';
+import { TrainingService } from '../services/training.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { LanguageUpdateDrawerComponent } from './language/language-update-drawer
     CompetitionUpdateDrawerComponent,
     CreateLanguageComponent,
     ShowLanguageComponent,
-    LanguageUpdateDrawerComponent
+    LanguageUpdateDrawerComponent,
+    CreateTrainingComponent,
+    ShowTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { LanguageUpdateDrawerComponent } from './language/language-update-drawer
   providers   : [ { provide: NZ_I18N, useValue: en_US }, 
     { provide: NZ_MODAL_CONFIG, useValue: {autoBodyPadding: true}}, 
     CompetitionService,
-    LanguageService
+    LanguageService,
+    TrainingService
   ],
   bootstrap: [AppComponent]
 })

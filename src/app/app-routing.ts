@@ -4,6 +4,8 @@ import { CreateCompetitionComponent } from "./competition/create-competition/cre
 import { ShowCompetitionComponent } from "./competition/show-competition/show-competition.component";
 import { CreateLanguageComponent } from "./language/create-language/create-language.component";
 import { ShowLanguageComponent } from "./language/show-language/show-language.component";
+import { CreateTrainingComponent } from "./training/create-training/create-training.component";
+import { ShowTrainingComponent } from "./training/show-training/show-training.component";
 
 export const AppRoutes: Routes = [
     {
@@ -24,6 +26,14 @@ export const AppRoutes: Routes = [
             {
                 path:'language/show',
                 component: ShowLanguageComponent
+            },
+            {
+                path:'training/create',
+                component: CreateTrainingComponent
+            },
+            {
+                path:'training/show',
+                component: ShowTrainingComponent
             }
         ]
     }
