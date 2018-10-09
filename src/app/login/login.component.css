@@ -1,0 +1,7 @@
+.candidate{
+    margin-left: 127px;
+}
+
+.candidate:hover{
+    color:blue;
+}

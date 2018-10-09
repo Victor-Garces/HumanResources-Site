@@ -26,6 +26,7 @@ import { TrainingUpdateDrawerComponent } from './training/training-update-drawer
 import { CreatePositionComponent } from './position/create-position/create-position.component';
 import { ShowPositionComponent } from './position/show-position/show-position.component';
 import { PositionUpdateDrawerComponent } from './position/position-update-drawer/position-update-drawer.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PositionUpdateDrawerComponent } from './position/position-update-drawer
     TrainingUpdateDrawerComponent,
     CreatePositionComponent,
     ShowPositionComponent,
-    PositionUpdateDrawerComponent
+    PositionUpdateDrawerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
