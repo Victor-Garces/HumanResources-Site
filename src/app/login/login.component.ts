@@ -41,4 +41,8 @@ export class LoginComponent implements OnInit {
   setDefaultLoginStatus() {
     this.loginService.changeLoginStatus(false);
   }
+
+  startCandidateEvaluation(){
+    this.router.navigate(['/candidate']);
+  }
 }

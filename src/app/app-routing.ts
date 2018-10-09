@@ -53,5 +53,9 @@ export const AppRoutes: Routes = [
         }
         ]
     },
+    {
+        path: 'candidate',
+        component: AppLayoutComponent
+    },
     { path: '**', component: LoginComponent }
 ]
