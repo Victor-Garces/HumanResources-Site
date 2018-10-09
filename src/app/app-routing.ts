@@ -8,43 +8,54 @@ import { CreateTrainingComponent } from "./training/create-training/create-train
 import { ShowTrainingComponent } from "./training/show-training/show-training.component";
 import { CreatePositionComponent } from "./position/create-position/create-position.component";
 import { ShowPositionComponent } from "./position/show-position/show-position.component";
+import { LoginComponent } from "./login/login.component";
 
 export const AppRoutes: Routes = [
     {
-        path:'employee',
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
+        path: 'employee',
         component: AppLayoutComponent,
         children: [{
-                path:'competition/create',
-                component: CreateCompetitionComponent
-            },
-            {
-                path:'competition/show',
-                component: ShowCompetitionComponent
-            },
-            {
-                path:'language/create',
-                component: CreateLanguageComponent
-            },
-            {
-                path:'language/show',
-                component: ShowLanguageComponent
-            },
-            {
-                path:'training/create',
-                component: CreateTrainingComponent
-            },
-            {
-                path:'training/show',
-                component: ShowTrainingComponent
-            },
-            {
-                path:'position/create',
-                component: CreatePositionComponent
-            },
-            {
-                path:'position/show',
-                component: ShowPositionComponent
-            }
+            path: 'competition/create',
+            component: CreateCompetitionComponent
+        },
+        {
+            path: 'competition/show',
+            component: ShowCompetitionComponent
+        },
+        {
+            path: 'language/create',
+            component: CreateLanguageComponent
+        },
+        {
+            path: 'language/show',
+            component: ShowLanguageComponent
+        },
+        {
+            path: 'training/create',
+            component: CreateTrainingComponent
+        },
+        {
+            path: 'training/show',
+            component: ShowTrainingComponent
+        },
+        {
+            path: 'position/create',
+            component: CreatePositionComponent
+        },
+        {
+            path: 'position/show',
+            component: ShowPositionComponent
+        }
         ]
-    }
+    },
+    {
+        path: 'candidate',
+        component: AppLayoutComponent
+    },
+    { path: '**', component: LoginComponent }
 ]
