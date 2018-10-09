@@ -10,25 +10,35 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  invalidUser: boolean;
+
   constructor(private loginService: LoginService, private router: Router) {
+    this.invalidUser = true;
   }
 
   ngOnInit() {
+    this.setDefaultLoginStatus();
   }
 
-  onSubmit(username: string, password: string){
+  onSubmit(username: string, password: string) {
     const user: User = {
       email: username,
       password: password
     };
 
     this.loginService.validateLogin(user).then((data) => {
-      if(data === true){
-        this.router.navigate(['/employee'])
-      }else{
-        console.log('Invalid user');
+      if (data === true) {
+        this.invalidUser = true;
+        this.loginService.changeLoginStatus(true);
+        this.router.navigate(['/employee']);
+      } else {
+        this.invalidUser = false;
       }
     }, (error) => console.log(error)
-  )
+    )
+  }
+
+  setDefaultLoginStatus() {
+    this.loginService.changeLoginStatus(false);
   }
 }

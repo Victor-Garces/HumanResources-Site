@@ -1,7 +1,14 @@
 .candidate{
-    margin-left: 127px;
+    margin-left: 132px;
+    margin-top: 10px;
 }
 
 .candidate:hover{
     color:blue;
+}
+
+.invalidUser{
+    margin-left: 132px;
+    margin-top: 10px;
+    color:red;
 }

@@ -1,4 +1,5 @@
 .log-out-button{    
-    margin-left: 42px;
-    margin-top: 400px;
+    position: absolute;
+    bottom: 0px;
+    left: 18%;
 }
