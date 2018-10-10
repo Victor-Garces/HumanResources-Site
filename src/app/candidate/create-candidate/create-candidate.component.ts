@@ -10,6 +10,8 @@ import { Training } from '../../../models/training';
 import { TrainingLevel } from '../../../enums/trainingLevel';
 import { WorkExperienceService } from '../../../services/work-experience.service';
 import { WorkExperience } from '../../../models/work-experience';
+import { CompetitionService } from '../../../services/competition.service';
+import { Competition } from '../../../models/competition';
 
 @Component({
   selector: 'app-create-candidate',
@@ -28,13 +30,18 @@ export class CreateCandidateComponent implements OnInit {
   displayTrainings: string[] = [];
   currentTrainings: Training[] = [];
 
+  competitions: Competition[] = [];
+  displayCompetitions: string[] = [];
+  currentCompetitions: Competition[] = [];
+
   workExperiences: WorkExperience[] = [];
 
   constructor(private fb: FormBuilder, 
     private candidateService: CandidateService,
     private positionService: PositionService,
     private trainingService: TrainingService,
-    private workExperienceService: WorkExperienceService
+    private workExperienceService: WorkExperienceService,
+    private competitionService: CompetitionService
   ) {
     this.validateForm = this.fb.group({
       identification: ['', [Validators.required], [this.userNameAsyncValidator]],
@@ -49,6 +56,7 @@ export class CreateCandidateComponent implements OnInit {
     this.getPositions();
     this.getTrainings();
     this.getWorkExperiences();
+    this.getCompetitions();
   }
 
   submitForm = ($event, value) => {
@@ -66,7 +74,8 @@ export class CreateCandidateComponent implements OnInit {
       positionId: this.currentPosition.id,
       trainings: this.currentTrainings,
       workExperiences: this.workExperiences,
-      recommendBy: value.recommendBy
+      recommendBy: value.recommendBy,
+      competitions: this.currentCompetitions
     };
 
     this.candidateService.createCandidate(candidate).then((data) => console.log(data)).catch((error) => console.log(error));
@@ -138,6 +147,26 @@ export class CreateCandidateComponent implements OnInit {
     this.workExperienceService.currentWorkExperiences.subscribe((data) => {
       this.workExperiences.concat(data);
     })
+  }
+
+  getCompetitions(){
+    this.competitionService.getCompetitions().then((data: Competition[]) => {
+      this.competitions = data;
+      this.displayCompetitions = this.competitions.map((value: Competition) => value.description)
+      console.log({Competencias: this.competitions});
+    });
+  }
+
+  onSelectCompetition(description: string){
+    var selectedCompetition = this.competitions.find((value: Competition) => value.description == description);
+
+    if(this.currentCompetitions.some(value => value.description == selectedCompetition.description)){
+      this.currentCompetitions = this.currentCompetitions.filter(value => value.description !== selectedCompetition.description);
+    }else{
+      this.currentCompetitions.push(selectedCompetition);
+    }
+
+    console.log({Competencia_actual: this.currentCompetitions});
   }
 
 }

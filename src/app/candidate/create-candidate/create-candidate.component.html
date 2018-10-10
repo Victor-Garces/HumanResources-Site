@@ -83,7 +83,7 @@
   <nz-form-item class="status" nz-row>
     <nz-dropdown>
       <a nz-dropdown>
-        Principales competencias
+        Principales capacitaciones
         <i class="anticon anticon-down"></i>
       </a>
       <ul nz-menu nzSelectable>
@@ -97,12 +97,12 @@
   <nz-form-item class="status" nz-row>
     <nz-dropdown>
       <a nz-dropdown>
-        Principales capacitaciones
+        Principales competencias
         <i class="anticon anticon-down"></i>
       </a>
       <ul nz-menu nzSelectable>
-        <li nz-menu-item *ngFor="let level of levels" (click)=onSelect(level)>
-          <a>{{level}}</a>
+        <li nz-menu-item *ngFor="let competition of displayCompetitions" (click)=onSelectCompetition(competition)>
+          <a>{{competition}}</a>
         </li>
       </ul>
     </nz-dropdown>
