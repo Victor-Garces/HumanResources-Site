@@ -32,6 +32,8 @@ import { ShowWorkExperienceComponent } from './work-experience/show-work-experie
 import { WorkExperienceUpdateDrawerComponent } from './work-experience/work-experience-update-drawer/work-experience-update-drawer.component';
 import { CreateCandidateComponent } from './candidate/create-candidate/create-candidate.component';
 import { TrainingLevelPipe } from './pipes/trainingLevelPipe';
+import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
+import { PositionPipe } from './pipes/positionPipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { TrainingLevelPipe } from './pipes/trainingLevelPipe';
     ShowWorkExperienceComponent,
     WorkExperienceUpdateDrawerComponent,
     CreateCandidateComponent,
-    TrainingLevelPipe
+    TrainingLevelPipe,
+    PositionPipe,
+    CreateEmployeeComponent
   ],
   imports: [
     BrowserModule,

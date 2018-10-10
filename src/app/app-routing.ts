@@ -12,6 +12,7 @@ import { LoginComponent } from "./login/login.component";
 import { CreateWorkExperienceComponent } from "./work-experience/create-work-experience/create-work-experience.component";
 import { ShowWorkExperienceComponent } from "./work-experience/show-work-experience/show-work-experience.component";
 import { CreateCandidateComponent } from "./candidate/create-candidate/create-candidate.component";
+import { CreateEmployeeComponent } from "./employee/create-employee/create-employee.component";
 
 export const AppRoutes: Routes = [{
         path: '',
@@ -52,6 +53,10 @@ export const AppRoutes: Routes = [{
         {
             path: 'position/show',
             component: ShowPositionComponent
+        },
+        {
+            path: 'evaluation',
+            component: CreateEmployeeComponent
         }
         ]
     },

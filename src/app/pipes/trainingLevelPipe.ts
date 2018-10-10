@@ -7,17 +7,17 @@ export class TrainingLevelPipe implements PipeTransform {
     transform(val: TrainingLevel): string {
 
         if (val === TrainingLevel.Grade) {
-            return 'Grade';
+            return 'Grado';
         } else if (val === TrainingLevel.PostGrade) {
-            return 'PostGrade';
+            return 'Post-Grado';
         } else if (val === TrainingLevel.Masters) {
-            return 'Masters';
+            return 'Master';
         } else if (val === TrainingLevel.Doctorate) {
-            return 'Doctorate';
+            return 'Doctorado';
         } else if (val === TrainingLevel.Technical) {
-            return 'Technical';
+            return 'Tecnico';
         } else if (val === TrainingLevel.Management) {
-            return 'Management';
+            return 'Manager';
         }
     }
 }
