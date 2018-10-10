@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.prod';
 import { CompetitionStatus } from '../enums/competitionStatus';
 import { EmployeeModel } from '../models/employee-model';
+import { EmployeesByDateModel } from '../models/employee-by-date-model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class EmployeeService {
     return this.http.post(`${environment.apiBaseUrl}/employee`, employeeModel).toPromise();
   }
 
-  getEmployees(){
-    return this.http.get(`${environment.apiBaseUrl}/employee`).toPromise();
+  getEmployeesByDate(dates: EmployeesByDateModel){
+    return this.http.post(`${environment.apiBaseUrl}/employee/report`, dates).toPromise();
   }
 
   // removeCompetition(id: string){

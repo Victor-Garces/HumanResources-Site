@@ -35,6 +35,7 @@ import { TrainingLevelPipe } from './pipes/trainingLevelPipe';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { PositionPipe } from './pipes/positionPipe';
 import { ConvertCandidateComponent } from './employee/convert-candidate/convert-candidate.component';
+import { EmployeeReportComponent } from './employee/employee-report/employee-report.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ConvertCandidateComponent } from './employee/convert-candidate/convert-
     TrainingLevelPipe,
     PositionPipe,
     CreateEmployeeComponent,
-    ConvertCandidateComponent
+    ConvertCandidateComponent,
+    EmployeeReportComponent
   ],
   imports: [
     BrowserModule,
