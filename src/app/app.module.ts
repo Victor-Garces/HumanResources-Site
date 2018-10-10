@@ -27,6 +27,7 @@ import { CreatePositionComponent } from './position/create-position/create-posit
 import { ShowPositionComponent } from './position/show-position/show-position.component';
 import { PositionUpdateDrawerComponent } from './position/position-update-drawer/position-update-drawer.component';
 import { LoginComponent } from './login/login.component';
+import { CreateWorkExperienceComponent } from './work-experience/create-work-experience/create-work-experience.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LoginComponent } from './login/login.component';
     CreatePositionComponent,
     ShowPositionComponent,
     PositionUpdateDrawerComponent,
-    LoginComponent
+    LoginComponent,
+    CreateWorkExperienceComponent
   ],
   imports: [
     BrowserModule,

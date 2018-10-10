@@ -9,9 +9,9 @@ import { ShowTrainingComponent } from "./training/show-training/show-training.co
 import { CreatePositionComponent } from "./position/create-position/create-position.component";
 import { ShowPositionComponent } from "./position/show-position/show-position.component";
 import { LoginComponent } from "./login/login.component";
+import { CreateWorkExperienceComponent } from "./work-experience/create-work-experience/create-work-experience.component";
 
-export const AppRoutes: Routes = [
-    {
+export const AppRoutes: Routes = [{
         path: '',
         redirectTo: 'login',
         pathMatch: 'full'
@@ -54,8 +54,12 @@ export const AppRoutes: Routes = [
         ]
     },
     {
-        path: 'candidate',
-        component: AppLayoutComponent
+        path: 'visit',
+        component: AppLayoutComponent,
+        children: [{
+            path: 'work-experience/create',
+            component: CreateWorkExperienceComponent
+        }]
     },
     { path: '**', component: LoginComponent }
 ]

@@ -43,6 +43,6 @@ export class LoginComponent implements OnInit {
   }
 
   startCandidateEvaluation(){
-    this.router.navigate(['/candidate']);
+    this.router.navigate(['/visit']);
   }
 }

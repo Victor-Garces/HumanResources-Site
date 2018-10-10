@@ -38,11 +38,13 @@
       <span class="nav-text">Candidatos</span>
     </span>
   </li>
-  <li nz-menu-item [hidden]="isLoged">
-    <span>
-      <i class="anticon anticon-user"></i>
-      <span class="nav-text">Experiencia laboral</span>
-    </span>
+  <li nz-submenu [hidden]="isLoged">
+    <span title>
+    <i class="anticon anticon-user"></i>Experiencia laboral</span>
+    <ul>
+      <li nz-menu-item routerLink="./work-experience/create">Crear</li>
+      <li nz-menu-item>Mostrar</li>
+    </ul>
   </li>
 </ul>
 <button class="log-out-button" nz-button nzType="primary" (click)="onSubmit()">Cerrar sesion</button>
