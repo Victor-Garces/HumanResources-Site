@@ -32,12 +32,13 @@
       <li nz-menu-item routerLink="./position/show">Mostrar</li>
     </ul>
   </li>
-  <li nz-menu-item [hidden]="isLoged"> 
-    <span>
-      <i class="anticon anticon-user"></i>
-      <span class="nav-text">Candidatos</span>
-    </span>
-  </li>
+  <li nz-submenu [hidden]="isLoged">
+      <span title>
+      <i class="anticon anticon-user"></i>Candidatos</span>
+      <ul>
+        <li nz-menu-item routerLink="./candidate/create">Crear</li>
+      </ul>
+    </li>
   <li nz-submenu [hidden]="isLoged">
     <span title>
     <i class="anticon anticon-user"></i>Experiencia laboral</span>

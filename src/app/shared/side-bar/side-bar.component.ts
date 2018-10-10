@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../services/login.service';
+import { WorkExperienceService } from '../../../services/work-experience.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -11,14 +12,15 @@ export class SideBarComponent implements OnInit {
 
   isLoged: boolean = false;
   
-  constructor(private router: Router, private loginService: LoginService) { }
+  constructor(private router: Router, private loginService: LoginService, private workExperienceService: WorkExperienceService) { }
 
   ngOnInit() {
     this.setLoginStatus();
   }
 
   onSubmit(){
-    this.router.navigate(['/login'])
+    this.workExperienceService.setWorkExperiences(null);
+    this.router.navigate(['/login']);
   }
 
   setLoginStatus(){

@@ -1,3 +1,5 @@
+import { WorkExperience } from "./work-experience";
+
 export interface Candidate {
     id?:string;
     identification: string;
@@ -5,5 +7,5 @@ export interface Candidate {
     positionId: string;
     department: string;
     aspiratedSalary: string;
-    workExpe
+    workExperiences: WorkExperience[]
 }

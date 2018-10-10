@@ -30,6 +30,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateWorkExperienceComponent } from './work-experience/create-work-experience/create-work-experience.component';
 import { ShowWorkExperienceComponent } from './work-experience/show-work-experience/show-work-experience.component';
 import { WorkExperienceUpdateDrawerComponent } from './work-experience/work-experience-update-drawer/work-experience-update-drawer.component';
+import { CreateCandidateComponent } from './candidate/create-candidate/create-candidate.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { WorkExperienceUpdateDrawerComponent } from './work-experience/work-expe
     LoginComponent,
     CreateWorkExperienceComponent,
     ShowWorkExperienceComponent,
-    WorkExperienceUpdateDrawerComponent
+    WorkExperienceUpdateDrawerComponent,
+    CreateCandidateComponent
   ],
   imports: [
     BrowserModule,
