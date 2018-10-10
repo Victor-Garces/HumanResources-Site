@@ -51,7 +51,7 @@
     </nz-form-item>
 
     <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>Salary</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired>Salario</nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback>
           <input nz-input type="number" formControlName="salary" placeholder="Escribe algo...">
           <nz-form-explain *ngIf="validateForm.get('salary').dirty && validateForm.get('salary').errors || validateForm.get('salary').pending ">

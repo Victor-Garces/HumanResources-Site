@@ -28,6 +28,8 @@ import { ShowPositionComponent } from './position/show-position/show-position.co
 import { PositionUpdateDrawerComponent } from './position/position-update-drawer/position-update-drawer.component';
 import { LoginComponent } from './login/login.component';
 import { CreateWorkExperienceComponent } from './work-experience/create-work-experience/create-work-experience.component';
+import { ShowWorkExperienceComponent } from './work-experience/show-work-experience/show-work-experience.component';
+import { WorkExperienceUpdateDrawerComponent } from './work-experience/work-experience-update-drawer/work-experience-update-drawer.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { CreateWorkExperienceComponent } from './work-experience/create-work-exp
     ShowPositionComponent,
     PositionUpdateDrawerComponent,
     LoginComponent,
-    CreateWorkExperienceComponent
+    CreateWorkExperienceComponent,
+    ShowWorkExperienceComponent,
+    WorkExperienceUpdateDrawerComponent
   ],
   imports: [
     BrowserModule,

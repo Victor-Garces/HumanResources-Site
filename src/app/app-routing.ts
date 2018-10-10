@@ -10,6 +10,7 @@ import { CreatePositionComponent } from "./position/create-position/create-posit
 import { ShowPositionComponent } from "./position/show-position/show-position.component";
 import { LoginComponent } from "./login/login.component";
 import { CreateWorkExperienceComponent } from "./work-experience/create-work-experience/create-work-experience.component";
+import { ShowWorkExperienceComponent } from "./work-experience/show-work-experience/show-work-experience.component";
 
 export const AppRoutes: Routes = [{
         path: '',
@@ -59,7 +60,12 @@ export const AppRoutes: Routes = [{
         children: [{
             path: 'work-experience/create',
             component: CreateWorkExperienceComponent
-        }]
+        },
+        {
+            path: 'work-experience/show',
+            component: ShowWorkExperienceComponent
+        }
+    ]
     },
     { path: '**', component: LoginComponent }
 ]
