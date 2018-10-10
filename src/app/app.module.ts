@@ -34,6 +34,7 @@ import { CreateCandidateComponent } from './candidate/create-candidate/create-ca
 import { TrainingLevelPipe } from './pipes/trainingLevelPipe';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { PositionPipe } from './pipes/positionPipe';
+import { ConvertCandidateComponent } from './employee/convert-candidate/convert-candidate.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { PositionPipe } from './pipes/positionPipe';
     CreateCandidateComponent,
     TrainingLevelPipe,
     PositionPipe,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    ConvertCandidateComponent
   ],
   imports: [
     BrowserModule,

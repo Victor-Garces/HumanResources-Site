@@ -1,4 +1,4 @@
-<app-competition-update-drawer #drawer></app-competition-update-drawer>
+<app-convert-candidate #drawer></app-convert-candidate>
 <nz-table #basicTable [nzData]="displayData">
   <thead>
     <tr>
@@ -23,7 +23,7 @@
         <td>{{data.department}}</td>
       <td>{{data.aspiredSalary}}
         <nz-divider nzType="vertical"></nz-divider>
-        <a style="color: blue; margin-left:20px;" (click)="drawer.open(data.id)">Convertir a empleado</a>
+        <a style="color: blue; margin-left:20px;" (click)="drawer.open(data)">Convertir a empleado</a>
       </td>
     </tr>
   </tbody>
