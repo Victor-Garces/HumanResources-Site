@@ -18,21 +18,33 @@ export class ShowWorkExperienceComponent implements OnInit {
 
   ngOnInit() { 
     this.showData();
+    this.workExperienceService.currentWorkExperiences.subscribe(work => {
+      this.workExperiences = work || [];
+    });
   } 
 
   showData(){
-    this.workExperienceService.getWorkExperiences().then((data: WorkExperience[]) => {
-      this.workExperiences = data;
-      this.displayData = [...this.workExperiences];
-    }).catch((error) => console.log(error));
+    this.workExperienceService.currentWorkExperiences.subscribe(work =>{
+      this.workExperiences = work;
+      this.displayData = this.workExperiences;
+    });
+    // this.workExperienceService.getWorkExperiences().then((data: WorkExperience[]) => {
+    //   this.workExperiences = data;
+    //   this.displayData = [...this.workExperiences];
+    // }).catch((error) => console.log(error));
   }
 
-  onDelete(id: string){
-    this.workExperienceService.removeWorkExperiences(id).then((data) => {
-      console.log(data);
-    }).catch((error) => console.log(error));
+  onDelete(company: string, occupiedPosition: string){
+    console.log({Antes: this.workExperiences});
+    this.workExperiences = this.workExperiences.filter(value => value.company !== company 
+      && value.occupiedPosition !== occupiedPosition);
+    console.log({Despues: this.workExperiences});
+    this.workExperienceService.setWorkExperiences(this.workExperiences);
+    // this.workExperienceService.removeWorkExperiences(id).then((data) => {
+    //   console.log(data);
+    // }).catch((error) => console.log(error));
     
-    this.displayData = this.displayData.filter(value => value.id !== id)
+    this.displayData = this.displayData.filter(value => value.company !== company && value.occupiedPosition !== occupiedPosition)
   }
 
   search() {

@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.prod';
 import { WorkExperience } from '../models/work-experience';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class WorkExperienceService {
+
+    private workExperiences: BehaviorSubject<WorkExperience[]> = new BehaviorSubject(null);
+    currentWorkExperiences = this.workExperiences.asObservable();
 
     constructor(private http: HttpClient) { }
 
@@ -24,5 +28,9 @@ export class WorkExperienceService {
 
     updateWorkExperiences(id: string, workExperience: WorkExperience) {
         return this.http.put(`${environment.apiBaseUrl}/work-experience/${id}`, workExperience).toPromise();
+    }
+
+    setWorkExperiences(workExperiences: WorkExperience[]){
+        this.workExperiences.next(workExperiences);
     }
 }

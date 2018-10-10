@@ -12,6 +12,7 @@ import { Observable, Observer } from 'rxjs';
 export class CreateWorkExperienceComponent implements OnInit {
 
   validateForm: FormGroup;
+  workExperiences: WorkExperience[] = [];
 
   constructor(private fb: FormBuilder, private workExperienceService: WorkExperienceService) {
     this.validateForm = this.fb.group({
@@ -24,6 +25,9 @@ export class CreateWorkExperienceComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.workExperienceService.currentWorkExperiences.subscribe(work => {
+      this.workExperiences = work || [];
+    });
   }
 
   submitForm = ($event, value) => {
@@ -32,8 +36,6 @@ export class CreateWorkExperienceComponent implements OnInit {
       this.validateForm.controls[key].markAsDirty();
       this.validateForm.controls[key].updateValueAndValidity();
     }
-    console.log(value);
-
     const workExperience: WorkExperience = {
       company: value.company,
       occupiedPosition: value.occupiedPosition,
@@ -42,9 +44,15 @@ export class CreateWorkExperienceComponent implements OnInit {
       salary: value.salary
     };
 
-    this.workExperienceService.createWorkExperience(workExperience)
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
+    console.log({Recien_Creada: workExperience});
+
+    this.workExperiences.push(workExperience);
+    this.workExperienceService.setWorkExperiences(this.workExperiences);
+    console.log({Experiencia_Despues: this.workExperiences});
+
+    // this.workExperienceService.createWorkExperience(workExperience)
+    // .then((data) => console.log(data))
+    // .catch((error) => console.log(error));
     
     this.validateForm.reset();
   };
