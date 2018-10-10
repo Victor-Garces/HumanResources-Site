@@ -87,8 +87,8 @@
         <i class="anticon anticon-down"></i>
       </a>
       <ul nz-menu nzSelectable>
-        <li nz-menu-item *ngFor="let level of levels" (click)=onSelect(level)>
-          <a>{{level}}</a>
+        <li nz-menu-item *ngFor="let training of displayTrainings" (click)=onSelectTraining(training)>
+          <a>{{training}}</a>
         </li>
       </ul>
     </nz-dropdown>

@@ -5,6 +5,11 @@ import { Observable, Observer } from 'rxjs';
 import { PositionService } from '../../../services/position.service';
 import { Position } from '../../../models/position';
 import { Candidate } from '../../../models/candidate';
+import { TrainingService } from '../../../services/training.service';
+import { Training } from '../../../models/training';
+import { TrainingLevel } from '../../../enums/trainingLevel';
+import { WorkExperienceService } from '../../../services/work-experience.service';
+import { WorkExperience } from '../../../models/work-experience';
 
 @Component({
   selector: 'app-create-candidate',
@@ -14,13 +19,22 @@ import { Candidate } from '../../../models/candidate';
 export class CreateCandidateComponent implements OnInit {
 
   validateForm: FormGroup;
+  
   positions: Position[] = [];
   displayPositions: string[] = [];
   currentPosition: Position;
 
+  trainings: Training[] = [];
+  displayTrainings: string[] = [];
+  currentTrainings: Training[] = [];
+
+  workExperiences: WorkExperience[] = [];
+
   constructor(private fb: FormBuilder, 
     private candidateService: CandidateService,
-    private positionService: PositionService
+    private positionService: PositionService,
+    private trainingService: TrainingService,
+    private workExperienceService: WorkExperienceService
   ) {
     this.validateForm = this.fb.group({
       identification: ['', [Validators.required], [this.userNameAsyncValidator]],
@@ -33,6 +47,8 @@ export class CreateCandidateComponent implements OnInit {
 
   ngOnInit() {
     this.getPositions();
+    this.getTrainings();
+    this.getWorkExperiences();
   }
 
   submitForm = ($event, value) => {
@@ -47,7 +63,10 @@ export class CreateCandidateComponent implements OnInit {
       name: value.name,
       department: value.department,
       aspiratedSalary: value.salary,
-      positionId: this.currentPosition.id
+      positionId: this.currentPosition.id,
+      trainings: this.currentTrainings,
+      workExperiences: this.workExperiences,
+      recommendBy: value.recommendBy
     };
 
     this.candidateService.createCandidate(candidate).then((data) => console.log(data)).catch((error) => console.log(error));
@@ -94,4 +113,31 @@ export class CreateCandidateComponent implements OnInit {
     this.currentPosition = this.positions.find((value: Position) => value.name == selectedPosition);
     console.log({Posicion_actual: this.currentPosition});
   }
+
+  getTrainings(){
+    this.trainingService.getTrainings().then((data: Training[]) => {
+      this.trainings = data;
+      this.displayTrainings = this.trainings.map((value: Training) => value.description)
+      console.log({Trainings: this.trainings});
+    });
+  }
+
+  onSelectTraining(description: string){
+    var selectedTraining = this.trainings.find((value: Training) => value.description == description);
+
+    if(this.currentTrainings.some(value => value.description == selectedTraining.description)){
+      this.currentTrainings = this.currentTrainings.filter(value => value.description !== selectedTraining.description);
+    }else{
+      this.currentTrainings.push(selectedTraining);
+    }
+
+    console.log({Training_actual: this.currentTrainings});
+  }
+
+  getWorkExperiences(){
+    this.workExperienceService.currentWorkExperiences.subscribe((data) => {
+      this.workExperiences.concat(data);
+    })
+  }
+
 }
