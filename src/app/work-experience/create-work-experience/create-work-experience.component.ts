@@ -14,6 +14,8 @@ export class CreateWorkExperienceComponent implements OnInit {
   validateForm: FormGroup;
   workExperiences: WorkExperience[] = [];
 
+  isValidDate: boolean = true;
+
   constructor(private fb: FormBuilder, private workExperienceService: WorkExperienceService) {
     this.validateForm = this.fb.group({
       company: ['', [Validators.required], [this.userNameAsyncValidator]],
@@ -44,17 +46,21 @@ export class CreateWorkExperienceComponent implements OnInit {
       salary: value.salary
     };
 
-    console.log({Recien_Creada: workExperience});
+    console.log({ Recien_Creada: workExperience });
 
-    this.workExperiences.push(workExperience);
-    this.workExperienceService.setWorkExperiences(this.workExperiences);
-    console.log({Experiencia_Despues: this.workExperiences});
+    this.dateTimeValidator(workExperience.dateFrom, workExperience.dateTo)
+
+    if (this.isValidDate) {
+      this.workExperiences.push(workExperience);
+      this.workExperienceService.setWorkExperiences(this.workExperiences);
+      console.log({ Experiencia_Despues: this.workExperiences });
+
+      this.validateForm.reset();
+    }
 
     // this.workExperienceService.createWorkExperience(workExperience)
     // .then((data) => console.log(data))
     // .catch((error) => console.log(error));
-    
-    this.validateForm.reset();
   };
 
   resetForm(e: MouseEvent): void {
@@ -77,6 +83,14 @@ export class CreateWorkExperienceComponent implements OnInit {
     }, 1000);
   });
 
+  dateTimeValidator(start: Date, end: Date) {
+    if (start > end) {
+      this.isValidDate = false;
+    } else {
+      this.isValidDate = true;
+    }
+  }
+
   confirmValidator = (control: FormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
@@ -84,5 +98,5 @@ export class CreateWorkExperienceComponent implements OnInit {
       return { confirm: true, error: true };
     }
   };
-  
+
 }

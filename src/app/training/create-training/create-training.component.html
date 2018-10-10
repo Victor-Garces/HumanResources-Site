@@ -40,6 +40,11 @@
     <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Fecha inicial</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
       <nz-date-picker formControlName="startDateTime"></nz-date-picker>
+      <nz-form-explain>
+          <ng-container *ngIf="!isValidDate">
+            Por favor, escriba una fecha valida
+          </ng-container>
+        </nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
@@ -51,17 +56,18 @@
   </nz-form-item>
 
   <nz-form-item class="status" nz-row>
-      <nz-dropdown>
-          <a nz-dropdown>
-            Nivel <i class="anticon anticon-down"></i>
-          </a>
-          <ul nz-menu nzSelectable>
-            <li nz-menu-item *ngFor="let level of levels" (click)=onSelect(level)>
-              <a>{{level}}</a>
-            </li>
-          </ul>
-        </nz-dropdown>
-      </nz-form-item>
+    <nz-dropdown>
+      <a nz-dropdown>
+        Nivel
+        <i class="anticon anticon-down"></i>
+      </a>
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item *ngFor="let level of levels" (click)=onSelect(level)>
+          <a>{{level}}</a>
+        </li>
+      </ul>
+    </nz-dropdown>
+  </nz-form-item>
 
   <nz-form-item>
     <nz-form-control [nzOffset]="7" [nzSpan]="12">

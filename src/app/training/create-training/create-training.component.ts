@@ -16,6 +16,8 @@ export class CreateTrainingComponent implements OnInit {
   levels: string[] = [];
   validateForm: FormGroup;
 
+  isValidDate: boolean = true;
+
   constructor(private fb: FormBuilder, private trainingService: TrainingService) {
     this.validateForm = this.fb.group({
       userName: ['', [Validators.required], [this.userNameAsyncValidator]],
@@ -66,8 +68,12 @@ export class CreateTrainingComponent implements OnInit {
       institution: value.institution
     };
 
-    this.trainingService.createTraining(training).then((data) => console.log(data)).catch((error) => console.log(error));
-    this.validateForm.reset();
+    this.dateTimeValidator(training.startDateTime, training.endDateTime)
+
+    if(this.isValidDate){
+      this.trainingService.createTraining(training).then((data) => console.log(data)).catch((error) => console.log(error));
+      this.validateForm.reset();
+    }
   };
 
   resetForm(e: MouseEvent): void {
@@ -89,6 +95,14 @@ export class CreateTrainingComponent implements OnInit {
       observer.complete();
     }, 1000);
   });
+
+  dateTimeValidator(start: Date, end: Date){
+    if(start > end){
+      this.isValidDate = false;
+    }else{
+      this.isValidDate = true;
+    }
+  }
 
   confirmValidator = (control: FormControl): { [s: string]: boolean } => {
     if (!control.value) {

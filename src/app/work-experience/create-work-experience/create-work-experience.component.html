@@ -40,6 +40,11 @@
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Fecha inicial</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24">
         <nz-date-picker formControlName="dateFrom"></nz-date-picker>
+        <nz-form-explain>
+            <ng-container *ngIf="!isValidDate">
+              Por favor, escriba una fecha valida
+            </ng-container>
+          </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
   
